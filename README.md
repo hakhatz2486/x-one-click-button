@@ -1,6 +1,6 @@
 # X One Click Button
 
-English | [日本語](README-ja.md)
+English | [日本語](https://github.com/hakhatz2486/x-one-click-button/blob/main/README-ja.md)
 
 A userscript that adds account-action buttons to X (Twitter) posts and following/follower lists.
 It automates X menus and confirmation dialogs, allowing you to mute, block, unfollow, and remove followers with a single click.
@@ -21,11 +21,9 @@ It automates X menus and confirmation dialogs, allowing you to mute, block, unfo
 ## Installation
 
 1. Install a userscript manager such as [Tampermonkey](https://www.tampermonkey.net/).
-2. Open the **X One Click Button** script page on [Greasy Fork](https://greasyfork.org/en).
+2. Open the [X One Click Button](https://greasyfork.org/en/scripts/587690-x-one-click-button) script page on Greasy Fork.
 3. Click **Install this script**, then confirm the installation in your userscript manager.
 4. Reload `x.com` or `twitter.com`.
-
-> The direct Greasy Fork script URL will be added to this README after publication.
 
 ## Usage
 
