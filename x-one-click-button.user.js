@@ -6,8 +6,10 @@
 // @description    Perform actions such as blocking, muting, and unfollowing with a single click on X (Twitter) posts and following/follower lists.
 // @description:ja X(Twitter)のポストやフォロー中/フォロワーの一覧に対し、ブロック、ミュート、フォロー解除等の操作をワンクリックで実行できます。
 // @author         hakhatz2486
-// @homepageURL    https://github.com/hakhatz2486/x-one-click-button
+// @homepageURL    https://greasyfork.org/ja/scripts/587690-x-one-click-button
 // @supportURL     https://github.com/hakhatz2486/x-one-click-button/issues
+// @downloadURL    https://update.greasyfork.org/scripts/587690/x-one-click-button.user.js
+// @updateURL      https://update.greasyfork.org/scripts/587690/x-one-click-button.meta.js
 // @license        MIT
 // @match          https://x.com/*
 // @match          https://twitter.com/*
