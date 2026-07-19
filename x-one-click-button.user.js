@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           X One Click Button
 // @name:ja        X One Click Button
-// @namespace      http://tampermonkey.net/
+// @namespace      https://github.com/hakhatz2486/x-one-click-button
 // @version        1.0.0
 // @description    Perform actions such as blocking, muting, and unfollowing with a single click on X (Twitter) posts and following/follower lists.
 // @description:ja X(Twitter)のポストやフォロー中/フォロワーの一覧に対し、ブロック、ミュート、フォロー解除等の操作をワンクリックで実行できます。
