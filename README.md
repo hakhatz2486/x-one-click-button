@@ -7,11 +7,11 @@ It automates X menus and confirmation dialogs, allowing you to mute, block, unfo
 
 ## Features
 
-| Screen | Added buttons | Action |
-| --- | --- | --- |
-| Post timeline | `Mute` / `Block` | Mute or block the post author |
-| Following list | `Unfollow` | Unfollow the selected account |
-| Follower list | `Unfollow` / `Block` | Remove the selected account from your followers or block it |
+| Screen         | Added buttons        | Action                                                      |
+| -------------- | -------------------- | ----------------------------------------------------------- |
+| Post timeline  | `Mute` / `Block`     | Mute or block the post author                               |
+| Following list | `Unfollow`           | Unfollow the selected account                               |
+| Follower list  | `Unfollow` / `Block` | Remove the selected account from your followers or block it |
 
 - Supports Japanese and English X menus
 - Follows X SPA navigation and dynamic list rendering
