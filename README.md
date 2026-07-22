@@ -41,8 +41,8 @@ On the follower list, `Unfollow` removes the selected account from your follower
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/hakhatz2486/x-one-click-button/blob/main/CHANGELOG.md).
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](https://github.com/hakhatz2486/x-one-click-button/blob/main/LICENSE)
