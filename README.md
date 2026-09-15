@@ -11,6 +11,7 @@ It automates X menus and confirmation dialogs, allowing you to mute, block, unfo
 | --------------------- | ----------------------- | ------------------------------------------------------------ |
 | Other accounts' posts | `Mute` / `Block`       | "Mute" / "Block"                                             |
 | Other accounts' posts | `👎️ (Not interested)`  | "Not interested in this post"                                |
+| Your own posts        | `Delete`                | "Delete"                                                      |
 | Following list        | `Unfollow`              | Unfollow the selected account                                 |
 | Follower list         | `Unfollow` / `Block`    | Remove the selected account from your followers or block it  |
 

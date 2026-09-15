@@ -5,6 +5,12 @@
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) を参考にし、
 バージョン番号は [Semantic Versioning](https://semver.org/lang/ja/) に準拠します。
 
+## [1.2.0] - 2026-09-15
+
+### Added
+
+- 自分のポストにワンクリックの `Delete` ボタンを追加
+
 ## [1.1.0] - 2026-09-15
 
 ### Added
