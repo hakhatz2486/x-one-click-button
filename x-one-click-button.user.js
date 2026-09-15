@@ -480,9 +480,32 @@
         );
     }
 
+    // サイドバーのアカウント切り替えボタンから自分のハンドルを取得する
+    function getCurrentUserHandle() {
+        const accountSwitcher = document.querySelector(
+            '[data-testid="SideNav_AccountSwitcher_Button"]',
+        );
+        if (!accountSwitcher) return null;
+
+        const handleSpan = [...accountSwitcher.querySelectorAll("span")].find(
+            (span) => span.textContent.trim().startsWith("@"),
+        );
+        return handleSpan ? handleSpan.textContent.trim().slice(1) : null;
+    }
+
+    // ポストの投稿者のハンドルを取得する
+    function getTweetAuthorHandle(tweet) {
+        const link = tweet.querySelector(
+            '[data-testid="User-Name"] a[href^="/"]',
+        );
+        if (!link) return null;
+        return link.getAttribute("href").split("/").filter(Boolean)[0] || null;
+    }
+
     // 各要素にボタンを追加する処理
     function addActionButtons() {
         // 1. タイムライン等のツイートに対する処理
+        const currentUserHandle = getCurrentUserHandle();
         const tweets = document.querySelectorAll(
             'article[data-testid="tweet"]:not([data-custom-action-added])',
         );
@@ -495,36 +518,50 @@
 
             tweet.setAttribute("data-custom-action-added", "true");
 
-            const blockBtn = createActionButton("Block", "block", () =>
-                executeCurrentMenuAction(
-                    tweet,
-                    '[data-testid="caret"]',
-                    "block",
-                ),
-            );
-            const muteBtn = createActionButton("Mute", "mute", () =>
-                executeCurrentMenuAction(
-                    tweet,
-                    '[data-testid="caret"]',
-                    "mute",
-                ),
-            );
+            const authorHandle = getTweetAuthorHandle(tweet);
+            const isOwnPost =
+                currentUserHandle &&
+                authorHandle &&
+                authorHandle.toLocaleLowerCase() ===
+                    currentUserHandle.toLocaleLowerCase();
 
-            targetContainer.insertBefore(blockBtn, caret);
-            targetContainer.insertBefore(muteBtn, blockBtn);
-
-            const notInterestedBtn = createIconActionButton(
-                "notInterested",
-                "Not interested",
-                NOT_INTERESTED_ICON_SVG,
-                () =>
+            // 自分のポストはブロック・ミュート・興味がない操作ができないため表示しない。
+            if (!isOwnPost) {
+                const blockBtn = createActionButton("Block", "block", () =>
                     executeCurrentMenuAction(
                         tweet,
                         '[data-testid="caret"]',
-                        "notInterested",
+                        "block",
                     ),
-            );
-            placeNotInterestedButton(tweet, targetContainer, notInterestedBtn);
+                );
+                const muteBtn = createActionButton("Mute", "mute", () =>
+                    executeCurrentMenuAction(
+                        tweet,
+                        '[data-testid="caret"]',
+                        "mute",
+                    ),
+                );
+
+                targetContainer.insertBefore(blockBtn, caret);
+                targetContainer.insertBefore(muteBtn, blockBtn);
+
+                const notInterestedBtn = createIconActionButton(
+                    "notInterested",
+                    "Not interested",
+                    NOT_INTERESTED_ICON_SVG,
+                    () =>
+                        executeCurrentMenuAction(
+                            tweet,
+                            '[data-testid="caret"]',
+                            "notInterested",
+                        ),
+                );
+                placeNotInterestedButton(
+                    tweet,
+                    targetContainer,
+                    notInterestedBtn,
+                );
+            }
         });
 
         // 2. フォロー中・フォロワー一覧のユーザーセルに対する処理
