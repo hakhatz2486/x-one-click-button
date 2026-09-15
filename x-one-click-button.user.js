@@ -95,6 +95,12 @@
             hoverColor: "rgb(255, 173, 31)", // オレンジ系
             hoverBg: "rgba(255, 173, 31, 0.1)",
         },
+        notInterested: {
+            keywords: ["このポストに興味がない", "not interested in this post"],
+            needsConfirm: false,
+            hoverColor: "rgb(83, 100, 113)", // グレー系
+            hoverBg: "rgba(83, 100, 113, 0.1)",
+        },
     };
 
     let actionInProgress = false;
@@ -328,6 +334,152 @@
         return btn;
     }
 
+    // 低評価（興味がない）マークのアイコン
+    const NOT_INTERESTED_ICON_SVG = `
+        <svg viewBox="0 0 24 24" width="18.75" height="18.75" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+        </svg>
+    `;
+
+    // いいね等のアイコンボタンに揃えた、アイコンのみのカスタムボタンを生成するヘルパー関数
+    function createIconActionButton(actionType, ariaLabel, iconSvg, onClick) {
+        const config = ACTION_CONFIG[actionType];
+        const defaultColor = "rgb(113, 118, 123)";
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `custom-btn-${actionType}`;
+        btn.setAttribute("aria-label", ariaLabel);
+        btn.title = ariaLabel;
+        btn.innerHTML = iconSvg;
+
+        btn.style.cssText = `
+            background-color: transparent;
+            border: none;
+            border-radius: 9999px;
+            color: ${defaultColor};
+            cursor: pointer;
+            width: 34.75px;
+            height: 34.75px;
+            padding: 0;
+            margin-left: 4px;
+            margin-right: 4px;
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            user-select: none;
+        `;
+
+        btn.onmouseover = () => {
+            if (btn.disabled) return;
+            btn.style.backgroundColor = config.hoverBg;
+            btn.style.color = config.hoverColor;
+        };
+
+        btn.onmouseout = () => {
+            if (btn.dataset.state === "done" || btn.dataset.state === "failed") {
+                return;
+            }
+            btn.style.backgroundColor = "transparent";
+            btn.style.color = defaultColor;
+        };
+
+        btn.onclick = async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (actionInProgress) return;
+            actionInProgress = true;
+
+            const parent = btn.parentElement;
+            const actionButtons = document.querySelectorAll(
+                'button[class^="custom-btn-"]',
+            );
+            actionButtons.forEach((button) => (button.disabled = true));
+
+            btn.style.opacity = "0.5";
+
+            let success = false;
+            let targetEl = null;
+            try {
+                success = await onClick();
+
+                if (success) {
+                    btn.dataset.state = "done";
+                    btn.style.opacity = "1";
+                    btn.style.color = config.hoverColor;
+                    btn.style.backgroundColor = config.hoverBg;
+
+                    // 処理対象のコンテナ（ツイート）を半透明に
+                    targetEl = parent;
+                    while (
+                        targetEl &&
+                        !targetEl.getAttribute("data-custom-action-added")
+                    ) {
+                        targetEl = targetEl.parentElement;
+                    }
+                    if (targetEl) {
+                        targetEl.style.opacity = "0.3";
+                        targetEl.style.pointerEvents = "none";
+                    }
+                } else {
+                    btn.dataset.state = "failed";
+                    btn.style.opacity = "1";
+                    btn.style.color = "red";
+                }
+            } catch (error) {
+                console.error(`Custom ${actionType} action failed:`, error);
+                btn.dataset.state = "failed";
+                btn.style.opacity = "1";
+                btn.style.color = "red";
+            } finally {
+                actionInProgress = false;
+                document
+                    .querySelectorAll('button[class^="custom-btn-"]')
+                    .forEach((button) => {
+                        const isCompletedTarget =
+                            success && targetEl?.contains(button);
+                        button.disabled = Boolean(isCompletedTarget);
+                    });
+            }
+        };
+
+        return btn;
+    }
+
+    // Grokアクションボタンとカスタムボタン（Mute等）の間に「興味がない」ボタンを配置する
+    function placeNotInterestedButton(tweet, targetContainer, notInterestedBtn) {
+        const grokBtn = [...tweet.querySelectorAll("[aria-label]")].find(
+            (el) =>
+                (el.getAttribute("aria-label") || "")
+                    .toLocaleLowerCase()
+                    .includes("grok"),
+        );
+
+        // Grokボタンを内包する分岐が見つかった位置に挿入する。
+        if (grokBtn) {
+            let node = targetContainer;
+            while (node.parentElement && node !== tweet) {
+                const parent = node.parentElement;
+                const grokSideSibling = [...parent.children].find(
+                    (child) => child !== node && child.contains(grokBtn),
+                );
+                if (grokSideSibling) {
+                    parent.insertBefore(notInterestedBtn, node);
+                    return;
+                }
+                node = parent;
+            }
+        }
+
+        // Grokボタンが見つからない場合はMuteボタンなどの直前に配置する。
+        targetContainer.insertBefore(
+            notInterestedBtn,
+            targetContainer.firstChild,
+        );
+    }
+
     // 各要素にボタンを追加する処理
     function addActionButtons() {
         // 1. タイムライン等のツイートに対する処理
@@ -360,6 +512,19 @@
 
             targetContainer.insertBefore(blockBtn, caret);
             targetContainer.insertBefore(muteBtn, blockBtn);
+
+            const notInterestedBtn = createIconActionButton(
+                "notInterested",
+                "Not interested",
+                NOT_INTERESTED_ICON_SVG,
+                () =>
+                    executeCurrentMenuAction(
+                        tweet,
+                        '[data-testid="caret"]',
+                        "notInterested",
+                    ),
+            );
+            placeNotInterestedButton(tweet, targetContainer, notInterestedBtn);
         });
 
         // 2. フォロー中・フォロワー一覧のユーザーセルに対する処理
