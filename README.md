@@ -7,23 +7,21 @@ It automates X menus and confirmation dialogs, allowing you to mute, block, unfo
 
 ## Features
 
-| Screen         | Added buttons        | Action                                                      |
-| -------------- | -------------------- | ----------------------------------------------------------- |
-| Post timeline  | `Mute` / `Block`     | Mute or block the post author                               |
-| Following list | `Unfollow`           | Unfollow the selected account                               |
-| Follower list  | `Unfollow` / `Block` | Remove the selected account from your followers or block it |
+| Screen                | Added buttons          | Action                                                       |
+| --------------------- | ----------------------- | ------------------------------------------------------------ |
+| Other accounts' posts | `Mute` / `Block`       | "Mute" / "Block"                                             |
+| Other accounts' posts | `👎️ (Not interested)`  | "Not interested in this post"                                |
+| Following list        | `Unfollow`              | Unfollow the selected account                                 |
+| Follower list         | `Unfollow` / `Block`    | Remove the selected account from your followers or block it  |
 
 - Supports Japanese and English X menus
 - Follows X SPA navigation and dynamic list rendering
-- Excludes inverse actions such as `Unblock` and `Unmute`
-- Prevents multiple actions from running at the same time
 
 ## Installation
 
-1. Install a userscript manager such as [Tampermonkey](https://www.tampermonkey.net/).
-2. Open the [X One Click Button](https://greasyfork.org/en/scripts/587690-x-one-click-button) script page on Greasy Fork.
-3. Click **Install this script**, then confirm the installation in your userscript manager.
-4. Reload `x.com` or `twitter.com`.
+1. Install a userscript manager in your browser.
+2. Install from the [X One Click Button](https://greasyfork.org/en/scripts/587690-x-one-click-button) page on Greasy Fork.
+3. Reload `x.com`.
 
 ## Usage
 
