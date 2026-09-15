@@ -101,6 +101,14 @@
             hoverColor: "rgb(83, 100, 113)", // グレー系
             hoverBg: "rgba(83, 100, 113, 0.1)",
         },
+        delete: {
+            keywords: ["削除", "delete"],
+            // 「リストから追加/削除」等、削除を含むが対象外の項目を除外する。
+            excludedKeywords: ["追加/削除"],
+            needsConfirm: true,
+            hoverColor: "rgb(244, 33, 46)", // 赤系
+            hoverBg: "rgba(244, 33, 46, 0.1)",
+        },
     };
 
     let actionInProgress = false;
@@ -525,7 +533,7 @@
                 authorHandle.toLocaleLowerCase() ===
                     currentUserHandle.toLocaleLowerCase();
 
-            // 自分のポストはブロック・ミュート・興味がない操作ができないため表示しない。
+            // 自分のポストはブロック・ミュート・興味がない操作ができないため、代わりにDeleteのみ表示する。
             if (!isOwnPost) {
                 const blockBtn = createActionButton("Block", "block", () =>
                     executeCurrentMenuAction(
@@ -561,6 +569,16 @@
                     targetContainer,
                     notInterestedBtn,
                 );
+            } else {
+                const deleteBtn = createActionButton("Delete", "delete", () =>
+                    executeCurrentMenuAction(
+                        tweet,
+                        '[data-testid="caret"]',
+                        "delete",
+                    ),
+                );
+
+                targetContainer.insertBefore(deleteBtn, caret);
             }
         });
 
