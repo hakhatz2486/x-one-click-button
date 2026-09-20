@@ -2,7 +2,7 @@
 // @name           X One Click Button
 // @name:ja        X One Click Button
 // @namespace      https://github.com/hakhatz2486/x-one-click-button
-// @version        1.2.0
+// @version        1.2.1
 // @description    Adds one-click buttons to block, mute, or unfollow accounts directly from posts and following/follower lists on X (Twitter).
 // @description:ja X(Twitter)のポストやフォロー中/フォロワーの一覧に対し、ブロック、ミュート、フォロー解除等の操作をワンクリックで実行できるボタンを追加します。
 // @author         hakhatz2486
@@ -96,7 +96,13 @@
             hoverBg: "rgba(255, 173, 31, 0.1)",
         },
         notInterested: {
-            keywords: ["このポストに興味がない", "not interested in this post"],
+            keywords: [
+                "このポストに興味がない",
+                "not interested in this post",
+                // 検索結果ページではメニュー項目の文言が異なる。
+                "このポストは役に立ちませんでした",
+                "this post wasn't helpful",
+            ],
             needsConfirm: false,
             hoverColor: "rgb(83, 100, 113)", // グレー系
             hoverBg: "rgba(83, 100, 113, 0.1)",

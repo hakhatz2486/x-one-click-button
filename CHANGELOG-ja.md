@@ -5,6 +5,12 @@
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) を参考にし、
 バージョン番号は [Semantic Versioning](https://semver.org/lang/ja/) に準拠します。
 
+## [1.2.1] - 2026-09-20
+
+### Added
+
+- 検索結果ページで👎️(低評価)ボタンを押すと「このポストは役に立ちませんでした」を実行できる機能を追加
+
 ## [1.2.0] - 2026-09-15
 
 ### Added
