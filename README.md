@@ -5,25 +5,24 @@ English | [日本語](https://github.com/hakhatz2486/x-one-click-button/blob/mai
 A userscript that adds account-action buttons to X (Twitter) posts and following/follower lists.
 It automates X menus and confirmation dialogs, allowing you to mute, block, unfollow, and remove followers with a single click.
 
-## Screenshots
+## Features
 
 ![Mute/Block buttons added to other accounts' posts](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/post-mute-block-buttons.png)
 
+Adds `Mute` and `Block` buttons to other accounts' posts, letting you perform "Mute" and "Block" respectively.
+It also adds a `👎️ (Not interested)` button, which selects "Not interested in this post" on the For You timeline, or "This post wasn't helpful" on search results.
+
 ![Delete button added to your own posts](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/own-post-delete-button.png)
+
+Adds a `Delete` button to your own posts, letting you delete the post.
 
 ![Unfollow button added to the following list](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/following-list-buttons.png)
 
+Adds an `Unfollow` button to the following list, letting you unfollow the selected account.
+
 ![Unfollow/Block buttons added to the follower list](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/follower-list-buttons.png)
 
-## Features
-
-| Screen                | Added buttons          | Action                                                       |
-| --------------------- | ----------------------- | ------------------------------------------------------------ |
-| Other accounts' posts | `Mute` / `Block`       | "Mute" / "Block"                                             |
-| Other accounts' posts | `👎️ (Not interested)`  | "Not interested in this post" / "This post wasn't helpful" (search results) |
-| Your own posts        | `Delete`                | "Delete"                                                      |
-| Following list        | `Unfollow`              | Unfollow the selected account                                 |
-| Follower list         | `Unfollow` / `Block`    | Remove the selected account from your followers or block it  |
+Adds `Unfollow` and `Block` buttons to the follower list, letting you remove the selected account from your followers or block it.
 
 - Supports Japanese and English X menus
 - Follows X SPA navigation and dynamic list rendering

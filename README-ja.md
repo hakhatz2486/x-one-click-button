@@ -5,25 +5,24 @@
 X(Twitter)のポストやフォロー中・フォロワー一覧に、アカウント操作用のボタンを追加するユーザースクリプトです。
 Xのメニューと確認ダイアログを自動操作し、ミュート、ブロック、フォロー解除などをワンクリックで実行できます。
 
-## スクリーンショット
+## 機能
 
 ![他アカウントのポストに追加されるMute/Blockボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/post-mute-block-buttons.png)
 
+他アカウントのポストに`Mute`・`Block`ボタンを追加し、それぞれ「ミュート」「ブロック」を実行できます。
+また、`👎️(低評価)`ボタンも追加され、TLのおすすめでは「このポストに興味がない」、検索結果では「このポストは役に立ちませんでした」を選択します。
+
 ![自分のポストに追加されるDeleteボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/own-post-delete-button.png)
+
+自分のポストには`Delete`ボタンを追加し、ポストの削除ができます。
 
 ![フォロー中一覧に追加されるUnfollowボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/following-list-buttons.png)
 
+フォロー中一覧には`Unfollow`ボタンを追加し、他アカウントに対するフォローを解除できます。
+
 ![フォロワー一覧に追加されるUnfollow/Blockボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/follower-list-buttons.png)
 
-## 機能
-
-| 対象画面             | 追加されるボタン     | 動作                                             |
-| -------------------- | -------------------- | ------------------------------------------------ |
-| 他アカウントのポスト | `Mute`/`Block`     | 「ミュート」/「ブロック」                                   |
-| 他アカウントのポスト | `👎️(低評価)`         | 「このポストに興味がない」/「このポストは役に立ちませんでした」(検索結果) |
-| 自分のポスト         | `Delete`             | 「削除」                                         |
-| フォロー中一覧       | `Unfollow`           | 対象アカウントのフォローを解除                   |
-| フォロワー一覧       | `Unfollow`/`Block` | 対象アカウントをフォロワーから削除またはブロック |
+フォロワー一覧には`Unfollow`・`Block`ボタンを追加し、対象アカウントをフォロワーから削除、またはブロックできます。
 
 - 日本語・英語表示のXに対応
 - XのSPA遷移や動的なリスト描画に追従
