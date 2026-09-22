@@ -135,7 +135,7 @@
     async function executeAction(menuBtn, actionType) {
         const config = ACTION_CONFIG[actionType];
         try {
-            // 1. 三点リーダー（もっと見る）をクリック
+            // 1. 三点リーダー(もっと見る)をクリック
             const existingMenus = getVisibleElements('[role="menu"]');
             menuBtn.click();
 
@@ -185,7 +185,7 @@
                 confirmButton.click();
             } else {
                 targetMenuItem.click();
-                // 確認が不要な場合（ミュートなど）は処理完了を少し待つ
+                // 確認が不要な場合(ミュートなど)は処理完了を少し待つ
                 await new Promise((resolve) => setTimeout(resolve, 300));
             }
 
@@ -309,7 +309,7 @@
                     btn.style.borderColor = config.hoverColor;
                     btn.style.backgroundColor = config.hoverBg;
 
-                    // 処理対象のコンテナ（ツイートまたはユーザーセル）を半透明に
+                    // 処理対象のコンテナ(ツイートまたはユーザーセル)を半透明に
                     targetEl = parent;
                     while (
                         targetEl &&
@@ -348,7 +348,7 @@
         return btn;
     }
 
-    // 低評価（興味がない）マークのアイコン
+    // 低評価(興味がない)マークのアイコン
     const NOT_INTERESTED_ICON_SVG = `
         <svg viewBox="0 0 24 24" width="18.75" height="18.75" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
@@ -425,7 +425,7 @@
                     btn.style.color = config.hoverColor;
                     btn.style.backgroundColor = config.hoverBg;
 
-                    // 処理対象のコンテナ（ツイート）を半透明に
+                    // 処理対象のコンテナ(ツイート)を半透明に
                     targetEl = parent;
                     while (
                         targetEl &&
@@ -462,7 +462,7 @@
         return btn;
     }
 
-    // Grokアクションボタンとカスタムボタン（Mute等）の間に「興味がない」ボタンを配置する
+    // Grokアクションボタンとカスタムボタン(Mute等)の間に「興味がない」ボタンを配置する
     function placeNotInterestedButton(tweet, targetContainer, notInterestedBtn) {
         const grokBtn = [...tweet.querySelectorAll("[aria-label]")].find(
             (el) =>
