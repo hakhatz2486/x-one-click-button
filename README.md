@@ -7,18 +7,26 @@ It automates X menus and confirmation dialogs, allowing you to mute, block, unfo
 
 ## Features
 
+### Other accounts' posts
+
 ![Mute/Block buttons added to other accounts' posts](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/post-mute-block-buttons.png)
 
 Adds `Mute` and `Block` buttons to other accounts' posts, letting you perform "Mute" and "Block" respectively.
 It also adds a `👎️ (Not interested)` button, which selects "Not interested in this post" on the For You timeline, or "This post wasn't helpful" on search results.
 
+### Your own posts
+
 ![Delete button added to your own posts](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/own-post-delete-button.png)
 
 Adds a `Delete` button to your own posts, letting you delete the post.
 
+### Following list
+
 ![Unfollow button added to the following list](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/following-list-buttons.png)
 
 Adds an `Unfollow` button to the following list, letting you unfollow the selected account.
+
+### Follower list
 
 ![Unfollow/Block buttons added to the follower list](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/follower-list-buttons.png)
 

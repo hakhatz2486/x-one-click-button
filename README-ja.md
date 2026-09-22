@@ -7,18 +7,26 @@ Xのメニューと確認ダイアログを自動操作し、ミュート、ブ�
 
 ## 機能
 
+### 他のアカウントのポスト
+
 ![他アカウントのポストに追加されるMute/Blockボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/post-mute-block-buttons.png)
 
 他アカウントのポストに`Mute`・`Block`ボタンを追加し、それぞれ「ミュート」「ブロック」を実行できます。
 また、`👎️(低評価)`ボタンも追加され、TLのおすすめでは「このポストに興味がない」、検索結果では「このポストは役に立ちませんでした」を選択します。
 
+### 自分のポスト
+
 ![自分のポストに追加されるDeleteボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/own-post-delete-button.png)
 
 自分のポストには`Delete`ボタンを追加し、ポストの削除ができます。
 
+### フォロー一覧
+
 ![フォロー中一覧に追加されるUnfollowボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/following-list-buttons.png)
 
 フォロー中一覧には`Unfollow`ボタンを追加し、他アカウントに対するフォローを解除できます。
+
+### フォロワー一覧
 
 ![フォロワー一覧に追加されるUnfollow/Blockボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/follower-list-buttons.png)
 
