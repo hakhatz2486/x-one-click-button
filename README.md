@@ -5,6 +5,16 @@ English | [日本語](https://github.com/hakhatz2486/x-one-click-button/blob/mai
 A userscript that adds account-action buttons to X (Twitter) posts and following/follower lists.
 It automates X menus and confirmation dialogs, allowing you to mute, block, unfollow, and remove followers with a single click.
 
+## Screenshots
+
+![Mute/Block buttons added to other accounts' posts](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/post-mute-block-buttons.png)
+
+![Delete button added to your own posts](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/own-post-delete-button.png)
+
+![Unfollow button added to the following list](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/following-list-buttons.png)
+
+![Unfollow/Block buttons added to the follower list](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/follower-list-buttons.png)
+
 ## Features
 
 | Screen                | Added buttons          | Action                                                       |
@@ -33,7 +43,7 @@ On the follower list, `Unfollow` removes the selected account from your follower
 
 ## Notes
 
-- Confirmation dialogs are automatically accepted. Verify the target account before clicking an action button.
+- Confirmation dialogs are skipped, and the action executes automatically. Verify the target account before clicking an action button.
 - Unfollowing, removing followers, muting, and blocking are not automatically reversible.
 - The script may stop working if X changes its DOM structure or menu labels.
 - This script operates through the X interface and does not use the X API or API keys.

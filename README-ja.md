@@ -5,6 +5,16 @@
 X(Twitter)のポストやフォロー中・フォロワー一覧に、アカウント操作用のボタンを追加するユーザースクリプトです。
 Xのメニューと確認ダイアログを自動操作し、ミュート、ブロック、フォロー解除などをワンクリックで実行できます。
 
+## スクリーンショット
+
+![他アカウントのポストに追加されるMute/Blockボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/post-mute-block-buttons.png)
+
+![自分のポストに追加されるDeleteボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/own-post-delete-button.png)
+
+![フォロー中一覧に追加されるUnfollowボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/following-list-buttons.png)
+
+![フォロワー一覧に追加されるUnfollow/Blockボタン](https://raw.githubusercontent.com/hakhatz2486/x-one-click-button/main/images/follower-list-buttons.png)
+
 ## 機能
 
 | 対象画面             | 追加されるボタン     | 動作                                             |
